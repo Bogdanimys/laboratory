@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Lab1 {
@@ -26,6 +27,7 @@ public class Lab1 {
         point3.setX(Double.parseDouble(scanner.nextLine()));
         point3.setY(Double.parseDouble(scanner.nextLine()));
         point3.setZ(Double.parseDouble(scanner.nextLine()));
+        
 
         System.out.println("Первая и вторая точки одинаковы - " + point1.equalsTo(point2));
         System.out.println("Первая и третья точки одинаковы - " + point1.equalsTo(point3));
