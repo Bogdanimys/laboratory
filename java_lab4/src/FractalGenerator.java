@@ -98,12 +98,11 @@ public abstract class FractalGenerator {
             while (z.getX() * z.getX() + z.getY() * z.getY() <= 4 &&
                     iterations < MAX_ITERATIONS){
 
-                //(Zx^2 + Cx - Zy^2 - Cy)
-                z.setX(z.getX() * z.getX() + c.getX()
-                        - z.getY() * z.getY() - c.getY());
-                //(Zy^2 + Cy)
-                z.setY(z.getY() * z.getY() +
-                        c.getY());
+                double tempZ = z.getX();
+                //(Zx^2 + Cx -Zy^2)
+                z.setX(z.getX() * z.getX() + c.getX() - z.getY() * z.getY());
+                //(2*Zy*Zx + Cy)
+                z.setY(2 * tempZ * z.getY() + c.getY());
 
                 iterations++;
             }

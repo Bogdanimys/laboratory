@@ -16,6 +16,26 @@ public class JImageDisplay extends JComponent{
         dimension.setSize(x,y);
 
         setPreferredSize(dimension);
+
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        g.drawImage (bufferedImage, 0, 0, bufferedImage.getWidth(), bufferedImage.getHeight(), null);
+    }
+
+    /**
+     * just passes variable onto setRGB() of BuggeredImage
+     */
+    public void drawPixel (int x, int y, int rgbColor){
+        bufferedImage.setRGB(x,y,rgbColor);
+    }
+
+    // BULLSHIT
+    public void clearImage (){
+        int[] aRGB = new int[101*101];
+
+        bufferedImage.setRGB(1,1,100,100,aRGB,2,2);
     }
 
 }
