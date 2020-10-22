@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.event.MouseAdapter;
 
+//TODO NEED comments
 public class FractalExplorer {
 
     private int length;
@@ -21,8 +22,7 @@ public class FractalExplorer {
         length = l;
 
         aDouble = new Rectangle2D.Double();
-        // TODO
-        // doesnt seem right
+
 
         FractalGenerator.Mandelbrot.getInitialRange(aDouble);
     }
@@ -40,8 +40,7 @@ public class FractalExplorer {
             jImageDisplay.repaint();
         };
 
-        // TODO
-        // Have no idea what Im doing
+
         pane.add(button, BorderLayout.SOUTH);
         pane.add(jImageDisplay, BorderLayout.CENTER);
         frame.setContentPane(pane);
