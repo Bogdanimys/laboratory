@@ -1,5 +1,6 @@
 /**
  * Complex number x + yi;
+ * Just 2 double variables + get and set methods.
  */
 public class ComplexNumber {
     private double x;

@@ -70,10 +70,11 @@ public abstract class FractalGenerator {
 
     static class Mandelbrot  {
 
-
+        /**
+         * Sets the specified rectangle to contain the initial range suitable for
+         * the fractal being generated.
+         */
         public static void getInitialRange (Rectangle2D.Double range){
-            // TODO
-            // MAYBE done
 
             range.x = -2;
             range.y = -1.5;
@@ -84,9 +85,13 @@ public abstract class FractalGenerator {
 
         public static final int MAX_ITERATIONS = 2000;
 
-        // TODO
-        // Check if this is right
-
+        /**
+         * Given a coordinate <em>x</em> + <em>iy</em> in the complex plane,
+         * computes and returns the number of iterations before the fractal
+         * function escapes the bounding area for that point.  A point that
+         * doesn't escape before the iteration limit is reached is indicated
+         * with a result of -1.
+         */
         public static int numIterations (double x, double y){
 
             ComplexNumber c = new ComplexNumber(x,y);
@@ -98,7 +103,7 @@ public abstract class FractalGenerator {
             while (z.getX() * z.getX() + z.getY() * z.getY() <= 4 &&
                     iterations < MAX_ITERATIONS){
 
-                double tempZ = z.getX();
+                double tempZ = z.getX(); // saving old material part of z for z.setY();
                 //(Zx^2 + Cx -Zy^2)
                 z.setX(z.getX() * z.getX() + c.getX() - z.getY() * z.getY());
                 //(2*Zy*Zx + Cy)
@@ -106,9 +111,7 @@ public abstract class FractalGenerator {
 
                 iterations++;
             }
-
             if (iterations >= MAX_ITERATIONS) return -1;
-
             return iterations;
 
         }
