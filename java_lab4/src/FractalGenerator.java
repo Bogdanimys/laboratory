@@ -44,7 +44,7 @@ public abstract class FractalGenerator {
      * Updates the current range to be centered at the specified coordinates,
      * and to be zoomed in or out by the specified scaling factor.
      */
-    public void recenterAndZoomRange(Rectangle2D.Double range,
+    public static void recenterAndZoomRange(Rectangle2D.Double range,
                                      double centerX, double centerY, double scale) {
 
         double newWidth = range.width * scale;
@@ -54,6 +54,9 @@ public abstract class FractalGenerator {
         range.y = centerY - newHeight / 2;
         range.width = newWidth;
         range.height = newHeight;
+        //range.x = -2.0 + (range.width * (centerX));
+        //range.y = -1.5 + (range.height * (centerY));
+
     }
 
 
@@ -68,7 +71,7 @@ public abstract class FractalGenerator {
 
     // MY CODE
 
-    static class Mandelbrot  {
+    static class Mandelbrot {
 
         /**
          * Sets the specified rectangle to contain the initial range suitable for
@@ -76,7 +79,7 @@ public abstract class FractalGenerator {
          */
         public static void getInitialRange (Rectangle2D.Double range){
 
-            range.x = -2;
+            range.x = -2.0;
             range.y = -1.5;
 
             range.width =  3;
