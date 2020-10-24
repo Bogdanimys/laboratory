@@ -1,13 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.event.MouseAdapter;
 
-//TODO NEED comments
 public class FractalExplorer {
 
     private int length;
@@ -27,42 +25,40 @@ public class FractalExplorer {
         FractalGenerator.Mandelbrot.getInitialRange(aDouble);
     }
 
+    /**
+     * Creates: JFrame with JImageDispaly in which fractal is drawn,
+     * button for resetting zoom range.
+     */
     public void createAndShowGUI(){
         JFrame frame = new JFrame("Фрактал Мандельброта");
-        Container pane = frame.getContentPane();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         jImageDisplay = new JImageDisplay(length,length);
-        Button button = new Button("Reset");
 
+        Button button = new Button("Reset");
         ActionListener actionListener = e -> {
             FractalGenerator.Mandelbrot.getInitialRange(aDouble);
             drawFractal();
             jImageDisplay.repaint();
         };
-
-
-        pane.add(button, BorderLayout.SOUTH);
-        pane.add(jImageDisplay, BorderLayout.CENTER);
-        frame.setContentPane(pane);
-
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         button.addActionListener(actionListener);
 
-        //not my code (THANK GOD)
+        frame.add(jImageDisplay, BorderLayout.CENTER);
+        frame.add(button, BorderLayout.SOUTH);
+
+        //not my code
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
 
-
-        MyMouseListener myMouseListener = new MyMouseListener();
-        jImageDisplay.addMouseListener(myMouseListener.mouseListener);
-
+        jImageDisplay.addMouseListener(new MyMouseListener().mouseListener);
     }
 
     private void drawFractal (){
 
         double xCoord;
         double yCoord;
+
         int numIters;
 
         for (int y = 1; y < length; y++){
@@ -70,11 +66,12 @@ public class FractalExplorer {
 
                 xCoord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, x);
                 yCoord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, y);
+
                 numIters = FractalGenerator.Mandelbrot.numIterations(xCoord,yCoord);
 
                 if (numIters != -1){
                     float hue = 0.7f + (float) numIters / 200f;
-                    int rgbColor = Color.HSBtoRGB(hue, 1f, 1f);
+                    int rgbColor = Color.HSBtoRGB(hue, 0.74f, 0.74f);
                     jImageDisplay.drawPixel(x,y,rgbColor);
                 }
                 else jImageDisplay.drawPixel(x,y,0);
@@ -88,17 +85,13 @@ public class FractalExplorer {
         fractalExplorer.createAndShowGUI();
 
         fractalExplorer.drawFractal();
-
-
-
     }
-
-
 
         class MyMouseListener extends MouseAdapter {
         public  MouseListener mouseListener = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 double xCord;
                 double yCord;
 
@@ -108,28 +101,15 @@ public class FractalExplorer {
                 FractalGenerator.recenterAndZoomRange(aDouble, xCord,yCord,0.5);
 
                 drawFractal();
-
             }
-
             @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
+            public void mousePressed(MouseEvent e) { }
             @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
+            public void mouseReleased(MouseEvent e) { }
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
+            public void mouseEntered(MouseEvent e) { }
             @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+            public void mouseExited(MouseEvent e) { }
         };
     }
 }

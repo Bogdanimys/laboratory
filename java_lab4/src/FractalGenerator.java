@@ -52,11 +52,9 @@ public abstract class FractalGenerator {
 
         range.x = centerX - newWidth / 2;
         range.y = centerY - newHeight / 2;
+
         range.width = newWidth;
         range.height = newHeight;
-        //range.x = -2.0 + (range.width * (centerX));
-        //range.y = -1.5 + (range.height * (centerY));
-
     }
 
 
@@ -77,6 +75,7 @@ public abstract class FractalGenerator {
          * Sets the specified rectangle to contain the initial range suitable for
          * the fractal being generated.
          */
+
         public static void getInitialRange (Rectangle2D.Double range){
 
             range.x = -2.0;
