@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7cc55cf4-78d3-43ed-b077-8d94d50a2aa0" name="Default Changelist" comment="lab 4 done">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_lab4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/ComplexNumber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/FractalExplorer$MyMouseListener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/FractalExplorer$MyMouseListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/FractalExplorer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/FractalGenerator$Mandelbrot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/FractalGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab4/JImageDisplay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComplexNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FractalExplorer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FractalGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JImageDisplay.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\IntelliJ IDEA Community Edition 2020.2.1\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1j8u7abdbeNKedeI7wQOXTIlk2Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java_lab4_and_5" />
+  </component>
+  <component name="RunManager">
+    <configuration name="FractalExplorer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FractalExplorer" />
+      <module name="java_lab4_and_5" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="java_lab4_and_5" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="java_lab4_and_5" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FractalExplorer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7cc55cf4-78d3-43ed-b077-8d94d50a2aa0" name="Default Changelist" comment="" />
+      <created>1603197873401</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603197873401</updated>
+    </task>
+    <task id="LOCAL-00001" summary="starting lab 4">
+      <created>1603197979235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603197979235</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Ничего не понятно lab 4">
+      <created>1603198936186</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603198936186</updated>
+    </task>
+    <task id="LOCAL-00003" summary="/(0_0)/  РАБОТАЕТ&#10;&#10;actually it just opens somewhat empty window, but it changes its size then I change something in code -&gt; ITS WORKING">
+      <created>1603206285802</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603206285802</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Наконец отображается Фрактал Мандельброта. N I C E">
+      <created>1603376079173</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603376079173</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Наконец отображается Фрактал Мандельброта. N I C E">
+      <created>1603376505408</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603376505408</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lab 4 done">
+      <created>1603383154623</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603383154623</updated>
+    </task>
+    <task id="LOCAL-00007" summary="lab 4 done">
+      <created>1603383201781</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603383201781</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="starting lab 4" />
+    <MESSAGE value="Ничего не понятно lab 4" />
+    <MESSAGE value="/(0_0)/  РАБОТАЕТ&#10;&#10;actually it just opens somewhat empty window, but it changes its size then I change something in code -&gt; ITS WORKING" />
+    <MESSAGE value="Наконец отображается Фрактал Мандельброта. N I C E" />
+    <MESSAGE value="lab 4 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab 4 done" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="482" y="231" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603559700181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="482" y="231" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603559700181" />
+    <state x="808" y="281" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1603559635909">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="281" key="#com.intellij.ide.macro.MacrosDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603559635909" />
+    <state x="328" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1603644915771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="328" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603644915771" />
+    <state x="260" y="278" key="FileChooserDialogImpl" timestamp="1603646372499">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="260" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603646372499" />
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1603646374619">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603646374619" />
+    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1603646374618">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603646374618" />
+    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1603646374618">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603646374618" />
+    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1603646374619">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603646374619" />
+    <state width="996" height="345" key="GridCell.Tab.1.bottom" timestamp="1603385349923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="996" height="345" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603385349923" />
+    <state width="996" height="345" key="GridCell.Tab.1.center" timestamp="1603385349922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="996" height="345" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603385349922" />
+    <state width="996" height="345" key="GridCell.Tab.1.left" timestamp="1603385349922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="996" height="345" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603385349922" />
+    <state width="996" height="345" key="GridCell.Tab.1.right" timestamp="1603385349923">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="996" height="345" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603385349923" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1603376519557">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603376519557" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1603375029455">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1603375029455" />
+  </component>
+</project>
