@@ -189,7 +189,6 @@ public class FractalExplorer {
     private class FractalWorker extends SwingWorker<Object, Object>{
 
         private int y;
-
         private int[] pixelsRGB;
 
         private FractalWorker (int y){
