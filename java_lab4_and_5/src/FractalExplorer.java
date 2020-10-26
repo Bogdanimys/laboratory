@@ -175,4 +175,50 @@ public class FractalExplorer {
             public void mouseExited(MouseEvent e) { }
         };
     }
+
+    private class FractalWorker extends SwingWorker<Object, Object>{
+
+        private int y;
+
+        private int[] pixelsRGB;
+
+        private FractalWorker (int y){
+            this.y = y;
+        }
+
+        @Override
+        protected Object doInBackground() throws Exception {
+            pixelsRGB = new int[length];
+
+            double xCoord;
+            double yCoord;
+
+            int numIters;
+
+            yCoord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, y);
+
+                for (int x = 1; x < length; x++){
+
+                    xCoord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, x);
+
+                    numIters = fractalGenerator.numIterations(xCoord,yCoord);
+
+                    if (numIters != -1){
+                        float hue = 0.7f + (float) numIters / 200f;
+                        pixelsRGB[x - 1] = Color.HSBtoRGB(hue, 0.74f, 0.74f);
+                    }
+                    else pixelsRGB[x - 1] = 0;
+                }
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            //super.done();
+            for (int x = 1; x < length; x++){
+                jImageDisplay.drawPixel(x, y, pixelsRGB[x - 1]);
+            }
+            jImageDisplay.repaint(1,y, length, 1);
+        }
+    }
 }
