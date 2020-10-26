@@ -26,4 +26,8 @@ public class JImageDisplay extends JComponent{
     public void drawPixel (int x, int y, int rgbColor){
         bufferedImage.setRGB(x,y,rgbColor);
     }
+
+    public BufferedImage getBufferedImage () {
+        return bufferedImage;
+    }
 }

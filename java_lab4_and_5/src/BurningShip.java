@@ -24,10 +24,10 @@ public class BurningShip extends FractalGenerator{
                 iterations < MAX_ITERATIONS){
 
             double tempZ = z.getX(); // saving old material part of z for z.setY();
-            //(Zx^2 + Cx -Zy^2)
+
             z.setX(z.getX() * z.getX() + c.getX() - z.getY() * z.getY());
-            //(2*Zy*Zx + Cy)
-            z.setY(2 * tempZ * z.getY() + c.getY());
+
+            z.setY(Math.abs(2 * z.getY() * tempZ) + c.getY());
 
             iterations++;
         }

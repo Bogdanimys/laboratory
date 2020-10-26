@@ -11,11 +11,10 @@ public class Tricorn extends FractalGenerator {
         range.height = 4;
     }
 
-    //TODO комплексное сопряжение Zn-1 ???
     public static final int MAX_ITERATIONS = 2000;
     @Override
     public int numIterations(double x, double y) {
-        ComplexNumber c = new ComplexNumber(x,y);
+        ComplexNumber c = new ComplexNumber(x,-y);
         ComplexNumber z = new ComplexNumber();
 
         int iterations = 0;
@@ -25,10 +24,10 @@ public class Tricorn extends FractalGenerator {
                 iterations < MAX_ITERATIONS){
 
             double tempZ = z.getX(); // saving old material part of z for z.setY();
-            //(Zx^2 + Cx -Zy^2)
-            z.setX(z.getX() * z.getX() + z.getY() * z.getY());
-            //(2*Zy*Zx + Cy)
-            z.setY(2 * tempZ * z.getY() );
+
+            z.setX(z.getX() * z.getX() + c.getX() - z.getY() * z.getY());
+
+            z.setY(-1 * (2 * tempZ * z.getY() + c.getY()));
 
             iterations++;
         }

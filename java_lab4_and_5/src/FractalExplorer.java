@@ -1,7 +1,14 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.RenderedImage;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.logging.Logger;
 
 public class FractalExplorer {
 
@@ -29,7 +36,7 @@ public class FractalExplorer {
      * button for resetting zoom range.
      */
     public void createAndShowGUI(){
-        JFrame frame = new JFrame("Фрактал Мандельброта");
+        JFrame frame = new JFrame("Fractals");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         jImageDisplay = new JImageDisplay(length,length);
@@ -45,25 +52,58 @@ public class FractalExplorer {
         jComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fractalGenerator =(FractalGenerator) jComboBox.getSelectedItem();
-                drawFractal();
-                jImageDisplay.repaint();
+                fractalGenerator = (FractalGenerator) jComboBox.getSelectedItem();
+
+                                                // на всякий случай (getInitialRange говорит о возможности NullPointException).
+                if (fractalGenerator != null) { // В теории такое может быть только, если jComboBox.getSelectedItem() вернёт null
+                    fractalGenerator.getInitialRange(aDouble);
+                    drawFractal();
+                    jImageDisplay.repaint();
+                }
             }
         });
 
         jPanelForComboBox.add(new JLabel("Fractal"));
         jPanelForComboBox.add(jComboBox);
 
-        Button button = new Button("Reset");
-        ActionListener actionListener = e -> {
+
+        JPanel jPanelForButtons = new JPanel();
+
+        Button btnReset = new Button("Reset Display");
+        ActionListener actionListenerForBtnReset = e -> {
             fractalGenerator.getInitialRange(aDouble);
             drawFractal();
             jImageDisplay.repaint();
         };
-        button.addActionListener(actionListener);
+        btnReset.addActionListener(actionListenerForBtnReset);
+
+        Button btnSave = new Button("Save Image");
+        ActionListener actionListenerForBtnSave = e -> {
+
+            JFileChooser jFileChooser = new JFileChooser();
+
+            FileFilter fileFilter = new FileNameExtensionFilter("PNG Images", "png");
+            jFileChooser.setFileFilter(fileFilter);
+            jFileChooser.setAcceptAllFileFilterUsed(false);
+
+            if (jFileChooser.showDialog(frame, "Save") == JFileChooser.APPROVE_OPTION){
+
+                try {
+                    ImageIO.write(jImageDisplay.getBufferedImage(), "png", jFileChooser.getSelectedFile());
+
+                } catch (IOException ioException){
+                    JOptionPane.showMessageDialog(frame, ioException.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        };
+
+        btnSave.addActionListener(actionListenerForBtnSave);
+
+        jPanelForButtons.add(btnSave);
+        jPanelForButtons.add(btnReset);
 
         frame.add(jImageDisplay, BorderLayout.CENTER);
-        frame.add(button, BorderLayout.SOUTH);
+        frame.add(jPanelForButtons, BorderLayout.SOUTH);
 
         frame.add(jPanelForComboBox, BorderLayout.NORTH);
 
@@ -74,6 +114,8 @@ public class FractalExplorer {
 
 
     }
+
+
 
     private void drawFractal (){
 
