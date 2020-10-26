@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 
 public class FractalExplorer {
 
+    /**
+     * length of fractal in pixels
+     */
     private int length;
 
     private JImageDisplay jImageDisplay;
@@ -20,11 +23,14 @@ public class FractalExplorer {
 
     private Rectangle2D.Double aDouble;
 
+    private JComboBox<FractalGenerator> jComboBox;
+    private Button btnSave;
+    private Button btnReset;
+
     public FractalExplorer (int l){
         length = l;
 
         aDouble = new Rectangle2D.Double();
-
 
         new Mandelbrot().getInitialRange(aDouble);
 
@@ -32,8 +38,9 @@ public class FractalExplorer {
     }
 
     /**
-     * Creates: JFrame with JImageDispaly in which fractal is drawn,
-     * button for resetting zoom range.
+     * Creates: JFrame with JImageDispaly in which fractal is painted,
+     * Buttons ResetDisplay and save in file, JPanel and ActionListener-s for them,
+     * JComboBox containing 3 FractalGenerator-s.
      */
     public void createAndShowGUI(){
         JFrame frame = new JFrame("Fractals");
@@ -44,22 +51,19 @@ public class FractalExplorer {
 
         JPanel jPanelForComboBox = new JPanel();
 
-        JComboBox<FractalGenerator> jComboBox = new JComboBox<>();
+        jComboBox = new JComboBox<>();
         jComboBox.addItem(new Mandelbrot());
         jComboBox.addItem(new Tricorn());
         jComboBox.addItem(new BurningShip());
 
-        jComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                fractalGenerator = (FractalGenerator) jComboBox.getSelectedItem();
+        jComboBox.addActionListener(e -> {
+            fractalGenerator = (FractalGenerator) jComboBox.getSelectedItem();
 
-                                                // на всякий случай (getInitialRange говорит о возможности NullPointException).
-                if (fractalGenerator != null) { // В теории такое может быть только, если jComboBox.getSelectedItem() вернёт null
-                    fractalGenerator.getInitialRange(aDouble);
-                    drawFractal();
-                    jImageDisplay.repaint();
-                }
+                                            // на всякий случай (getInitialRange говорит о возможности NullPointException).
+            if (fractalGenerator != null) { // В теории такое может быть только, если jComboBox.getSelectedItem() вернёт null
+                fractalGenerator.getInitialRange(aDouble);
+                drawFractal();
+                jImageDisplay.repaint();
             }
         });
 
@@ -69,7 +73,7 @@ public class FractalExplorer {
 
         JPanel jPanelForButtons = new JPanel();
 
-        Button btnReset = new Button("Reset Display");
+        btnReset = new Button("Reset Display");
         ActionListener actionListenerForBtnReset = e -> {
             fractalGenerator.getInitialRange(aDouble);
             drawFractal();
@@ -77,7 +81,7 @@ public class FractalExplorer {
         };
         btnReset.addActionListener(actionListenerForBtnReset);
 
-        Button btnSave = new Button("Save Image");
+        btnSave = new Button("Save Image");
         ActionListener actionListenerForBtnSave = e -> {
 
             JFileChooser jFileChooser = new JFileChooser();
@@ -113,10 +117,11 @@ public class FractalExplorer {
         frame.setResizable(false);
 
 
+
     }
 
 
-
+    private int rowsRemaining;
     private void drawFractal (){
 
         double xCoord;
@@ -124,23 +129,12 @@ public class FractalExplorer {
 
         int numIters;
 
-        for (int y = 1; y < length; y++){
-            for (int x = 1; x < length; x++){
-
-                xCoord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, x);
-                yCoord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, y);
-
-                numIters = fractalGenerator.numIterations(xCoord,yCoord);
-
-                if (numIters != -1){
-                    float hue = 0.7f + (float) numIters / 200f;
-                    int rgbColor = Color.HSBtoRGB(hue, 0.74f, 0.74f);
-                    jImageDisplay.drawPixel(x,y,rgbColor);
-                }
-                else jImageDisplay.drawPixel(x,y,0);
-            }
+        enableUI(false);
+        rowsRemaining = length;
+        for (int y = 0; y < length; y++){
+            FractalWorker fractalWorker = new FractalWorker(y);
+            fractalWorker.execute();
         }
-        jImageDisplay.repaint();
     }
 
     public static void main(String[] args) {
@@ -155,15 +149,17 @@ public class FractalExplorer {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                double xCord;
-                double yCord;
+                if (rowsRemaining <= 0) {
+                    double xCord;
+                    double yCord;
 
-                xCord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, e.getX());
-                yCord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, e.getY());
+                    xCord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, e.getX());
+                    yCord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, e.getY());
 
-                FractalGenerator.recenterAndZoomRange(aDouble, xCord,yCord,0.5);
+                    FractalGenerator.recenterAndZoomRange(aDouble, xCord, yCord, 0.5);
 
-                drawFractal();
+                    drawFractal();
+                }
             }
             @Override
             public void mousePressed(MouseEvent e) { }
@@ -174,6 +170,20 @@ public class FractalExplorer {
             @Override
             public void mouseExited(MouseEvent e) { }
         };
+
+
+    }
+
+    private void enableUI (boolean val){
+        if (val){
+            btnReset.setEnabled(true);
+            btnSave.setEnabled(true);
+            jComboBox.setEnabled(true);
+        } else {
+            btnReset.setEnabled(false);
+            btnSave.setEnabled(false);
+            jComboBox.setEnabled(false);
+        }
     }
 
     private class FractalWorker extends SwingWorker<Object, Object>{
@@ -188,7 +198,7 @@ public class FractalExplorer {
 
         @Override
         protected Object doInBackground() throws Exception {
-            pixelsRGB = new int[length];
+            pixelsRGB = new int[length + 1];
 
             double xCoord;
             double yCoord;
@@ -197,7 +207,7 @@ public class FractalExplorer {
 
             yCoord = FractalGenerator.getCoord(aDouble.y, aDouble.y + aDouble.height, length, y);
 
-                for (int x = 1; x < length; x++){
+                for (int x = 0; x < length; x++){
 
                     xCoord = FractalGenerator.getCoord(aDouble.x, aDouble.x + aDouble.width, length, x);
 
@@ -205,20 +215,23 @@ public class FractalExplorer {
 
                     if (numIters != -1){
                         float hue = 0.7f + (float) numIters / 200f;
-                        pixelsRGB[x - 1] = Color.HSBtoRGB(hue, 0.74f, 0.74f);
+                        pixelsRGB[x] = Color.HSBtoRGB(hue, 0.74f, 0.74f);
                     }
-                    else pixelsRGB[x - 1] = 0;
+                    else pixelsRGB[x] = 0;
                 }
             return null;
         }
 
         @Override
         protected void done() {
-            //super.done();
-            for (int x = 1; x < length; x++){
-                jImageDisplay.drawPixel(x, y, pixelsRGB[x - 1]);
+            super.done(); // я не знаю что это делает
+            for (int x = 0; x < length; x++){
+                jImageDisplay.drawPixel(x, y, pixelsRGB[x]);
             }
             jImageDisplay.repaint(1,y, length, 1);
+
+            rowsRemaining--;
+            if (rowsRemaining <= 0) enableUI(true);
         }
     }
 }
