@@ -39,7 +39,7 @@ public class Crawl {
             try {
                 synchronized (m) {
                     while (activeThreads >= MAXThreads) {
-                        //System.out.println("waiting"); //[ДЛЯ НАГЛЯДНОСТИ]
+                        System.out.println("waiting"); //[ДЛЯ НАГЛЯДНОСТИ]
                         m.wait();
                     }
                 }
@@ -54,7 +54,7 @@ public class Crawl {
                     UncheckedURL.remove(urlDepthPair);
                     CheckedURL.add(urlDepthPair);
 
-                    //System.out.println(urlDepthPair.getStringFormat()); //[ДЛЯ НАГЛЯДНОСТИ]
+                    System.out.println(urlDepthPair.getStringFormat()); //[ДЛЯ НАГЛЯДНОСТИ]
 
 
                     activeThreads++;
@@ -71,13 +71,15 @@ public class Crawl {
         printAll(UncheckedURL);
         System.out.println("CHECKED");
         printAll(CheckedURL);
+
+
     }
 
     public static void startThread (URLDepthPair urlDepthPair){
         new Thread(){
             @Override
             public void run() {
-                super.run();
+
                 crawlThroughURL(urlDepthPair); // [ИДЕЯ] засунуть этот метод в try catch чтобы потоки никогда не обрывались от ошибок этого метода
                 activeThreads--;
                 synchronized (m) {

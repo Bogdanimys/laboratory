@@ -26,15 +26,26 @@ public class MyFirstClassInJava {
         // [НЕ СДАНО]
 
         // показывает результаты из 4/6
-        Java_Tasks_4_6.showResults();
+        //Java_Tasks_4_6.showResults();
 
         // показывает результаты из 5/6
-        Java_Tasks_5_6.showResults();
+        //Java_Tasks_5_6.showResults();
 
         // показывает результаты из 6/6
-        Java_Tasks_6_6.showResults();
+        //Java_Tasks_6_6.showResults();
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
-
 
 }
