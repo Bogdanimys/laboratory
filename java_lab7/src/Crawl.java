@@ -10,9 +10,9 @@ import java.util.LinkedList;
 
 public class Crawl {
 
-    public static final String BEFORE_URL = "a href=";
-    public static final int MAXDepth = 3;
-    public static final int MAXThreads = 16;
+    public static final String  BEFORE_URL = "a href=";
+    public static final int     MAXDepth = 3;
+    public static final int     MAXThreads = 16;
 
     private static int activeThreads = 0;
 
@@ -20,9 +20,8 @@ public class Crawl {
     private static LinkedList<URLDepthPair> UncheckedURL = new LinkedList<>();
 
 
-    private static final Main m = new Main();;
-    // https://slashdot.org/ - сайт шрёдингера. Один и тот же код в разные промежутки времени выдаёт абсолютно разные результаты
-    public static void main(String[] args) throws IOException {
+    private static final Main m = new Main();
+    public static void main(String[] args) {
 
         //https://www.nytimes.com/
         //https://slashdot.org/
@@ -31,9 +30,8 @@ public class Crawl {
 
         UncheckedURL.add(firstURL);
 
-        // Значит цикл работает так: Если потоков меньше MAXThreads -> крутим цикл (иначе main.wait() (wait снимается при окончании потока из executor)).
-        // Если UncheckedURL не пуст -> добавляем UncheckedURL.get(0) к CheckedURL и удаляем из UncheckedURL, если глубина поиска не превышена, то начинаем...
-
+        // Значит цикл работает так: Если потоков меньше MAXThreads -> крутим цикл (иначе main.wait() (wait снимается при окончании работы потока)).
+        // Если UncheckedURL не пуст и глубина поиска не превышена -> добавляем UncheckedURL.get(0) к CheckedURL и удаляем из UncheckedURL, после чего начинаем новый поток
         while (!UncheckedURL.isEmpty() || activeThreads != 0) { // работает пока не закончатся непроверенные ссылки и все потоки
             // ВНИМАНИЕ - весь код внутри этого цикла сильно зависит от друг друга!!!
 
@@ -41,7 +39,7 @@ public class Crawl {
             try {
                 synchronized (m) {
                     while (activeThreads >= MAXThreads) {
-                        System.out.println("waiting");
+                        //System.out.println("waiting"); //[ДЛЯ НАГЛЯДНОСТИ]
                         m.wait();
                     }
                 }
@@ -56,7 +54,7 @@ public class Crawl {
                     UncheckedURL.remove(urlDepthPair);
                     CheckedURL.add(urlDepthPair);
 
-                    System.out.println(urlDepthPair.getStringFormat());
+                    //System.out.println(urlDepthPair.getStringFormat()); //[ДЛЯ НАГЛЯДНОСТИ]
 
 
                     activeThreads++;
@@ -80,12 +78,12 @@ public class Crawl {
             @Override
             public void run() {
                 super.run();
-                crawlThroughURL(urlDepthPair);
+                crawlThroughURL(urlDepthPair); // [ИДЕЯ] засунуть этот метод в try catch чтобы потоки никогда не обрывались от ошибок этого метода
                 activeThreads--;
                 synchronized (m) {
                     if (activeThreads <= MAXThreads) {
                         m.notify();
-                        System.out.println("notifying");
+                        // System.out.println("notifying"); //[ДЛЯ НАГЛЯДНОСТИ]
                     }
                 }
             }
@@ -93,11 +91,8 @@ public class Crawl {
     }
 
     private static void crawlThroughURL (URLDepthPair urlDepthPair){
-
-
         try {
-            URLConnection urlConnection = null;
-
+            URLConnection urlConnection;
 
             // устанавливаем соединение
             urlConnection = new URL(urlDepthPair.getURLAddress()).openConnection();
@@ -113,13 +108,12 @@ public class Crawl {
                // connectException.printStackTrace();
             }
 
-
             // читаем сайт
             String s;
             if (in != null) {
                 while ((s = in.readLine()) != null) {
 
-                    //System.out.println(s);// TODO убрать, это просто для наглядности
+                    //System.out.println(s); //[ДЛЯ НАГЛЯДНОСТИ]
 
                     if (s.contains(Crawl.BEFORE_URL + "\"" + URLDepthPair.URL_PREFIX) && urlDepthPair.getDepth() < Crawl.MAXDepth) { // содержит a href="http://
                         try {
@@ -166,9 +160,6 @@ public class Crawl {
                 in.close();
                 inputStreamReader.close();
                 urlConnection.getInputStream().close();
-
-
-
 
             }
         } catch (IOException ioException) {
