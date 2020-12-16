@@ -32,40 +32,44 @@ public class Crawl {
 
         // Значит цикл работает так: Если потоков меньше MAXThreads -> крутим цикл (иначе main.wait() (wait снимается при окончании работы потока)).
         // Если UncheckedURL не пуст и глубина поиска не превышена -> добавляем UncheckedURL.get(0) к CheckedURL и удаляем из UncheckedURL, после чего начинаем новый поток
-        while (!UncheckedURL.isEmpty() || activeThreads != 0) { // работает пока не закончатся непроверенные ссылки и все потоки
-            // ВНИМАНИЕ - весь код внутри этого цикла сильно зависит от друг друга!!!
+        synchronized (UncheckedURL) {
+            synchronized (CheckedURL) {
+                    while (!UncheckedURL.isEmpty() || activeThreads != 0) { // работает пока не закончатся непроверенные ссылки и все потоки
+                        // ВНИМАНИЕ - весь код внутри этого цикла сильно зависит от друг друга!!!
 
 
-            try {
-                synchronized (m) {
-                    while (activeThreads >= MAXThreads) {
-                        System.out.println("waiting"); //[ДЛЯ НАГЛЯДНОСТИ]
-                        m.wait();
+                        try {
+                            synchronized (m) {
+                                while (activeThreads >= MAXThreads) {
+                                    System.out.println("waiting"); //[ДЛЯ НАГЛЯДНОСТИ]
+                                    m.wait();
+                                }
+                            }
+                        } catch (InterruptedException e) {
+                            //e.printStackTrace();
+                        }
+
+                        if (!UncheckedURL.isEmpty()) {
+                            if (UncheckedURL.get(0).getDepth() < MAXDepth) {
+
+                                URLDepthPair urlDepthPair = UncheckedURL.get(0);
+                                UncheckedURL.remove(urlDepthPair);
+                                CheckedURL.add(urlDepthPair);
+
+                                System.out.println(urlDepthPair.getStringFormat()); //[ДЛЯ НАГЛЯДНОСТИ]
+
+
+                                activeThreads++;
+                                startThread(urlDepthPair);
+
+                            } else {
+                                CheckedURL.add(UncheckedURL.get(0));
+                                UncheckedURL.remove(UncheckedURL.get(0));
+                            }
+                        }
                     }
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
-
-            if (!UncheckedURL.isEmpty()) {
-                if (UncheckedURL.get(0).getDepth() < MAXDepth) {
-
-                    URLDepthPair urlDepthPair = UncheckedURL.get(0);
-                    UncheckedURL.remove(urlDepthPair);
-                    CheckedURL.add(urlDepthPair);
-
-                    System.out.println(urlDepthPair.getStringFormat()); //[ДЛЯ НАГЛЯДНОСТИ]
-
-
-                    activeThreads++;
-                    startThread(urlDepthPair);
-
-                } else {
-                    CheckedURL.add(UncheckedURL.get(0));
-                    UncheckedURL.remove(UncheckedURL.get(0));
-                }
-            }
-        }
 
         System.out.println("UNCHECKED");
         printAll(UncheckedURL);
@@ -188,6 +192,7 @@ public class Crawl {
             System.out.println(urlDepthPair.getStringFormat());
         }
     }
+
 
 
 
