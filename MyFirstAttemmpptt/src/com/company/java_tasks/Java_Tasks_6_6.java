@@ -34,7 +34,13 @@ public class Java_Tasks_6_6 {
         System.out.println(longestNonrepeatingSubstring("abcabce"));
 
         System.out.println("___[8]___");
-        System.out.println();
+        System.out.println(convertToRoman(3974));
+
+        System.out.println("___[9]___");
+        System.out.println(formula("4 + 5 = 9"));
+
+        System.out.println("___[10]___");
+        System.out.println(palindromeDescendant(11211230));
 
     }
 
@@ -343,26 +349,45 @@ public class Java_Tasks_6_6 {
                 switch (pos) {
 
                     case 1:
-                        if (number < 3) {
+                        if (number <= 3) {
                             ans.append("I".repeat(number));
-                        } else if (number < 5) {
-                            ans.append("I".repeat(4 - number)).append("V");
-                        } else if (number == 5){
-                            ans.append("V");
+                        } else if (number <= 5) {
+                            ans.append("I".repeat(5 - number)).append("V");
                         } else if (number < 9){
-                            ans.append("V").append("I".repeat(8 - number));
+                            ans.append("V").append("I".repeat(9 - number));
                         } else {
-
+                            ans.append("IX");
                         }
                         break;
 
                     case 2:
+                        if (number <= 3) {
+                            ans.append("".repeat(number));
+                        } else if (number <= 5) {
+                            ans.append("X".repeat(5 - number)).append("L");
+                        } else if (number < 9){
+                            ans.append("L").append("X".repeat(9 - number));
+                        } else {
+                            ans.append("XC");
+                        }
                         break;
 
                     case 3:
+                        if (number <= 3) {
+                            ans.append("".repeat(number));
+                        } else if (number <= 5) {
+                            ans.append("C".repeat(5 - number)).append("D");
+                        } else if (number < 9){
+                            ans.append("D").append("C".repeat(9 - number));
+                        } else {
+                            ans.append("CM");
+                        }
                         break;
 
                     case 4:
+                        if (number <= 3) {
+                            ans.append("M".repeat(number));
+                        }
                 }
             }
         }
@@ -374,6 +399,67 @@ public class Java_Tasks_6_6 {
     /**
      *9. Создайте функцию, которая принимает строку и возвращает true или false в зависимости от того, является ли формула правильной или нет.
      */
+    private static boolean formula (String s){
+        String[] strings = separatedBySpace(s);
+        int ans = 0;
+        int buffer = 0;
+
+        if (s.replaceFirst("=", "").contains("=")) return false;
+        try{
+            ans = Integer.parseInt(strings[0]);
+            String c = "";
+            for (int i = 1; i < strings.length; i++){
+                if (i % 2 == 0){
+                    buffer = Integer.parseInt(strings[i]);
+                    switch (c){
+                        case "=":
+                            return ans == buffer;
+                        case "/":
+                            ans /= buffer;
+                            break;
+                        case "*":
+                            ans *= buffer;
+                            break;
+                        case "+":
+                            ans += buffer;
+                            break;
+                        case "-":
+                            ans -= buffer;
+                    }
+                } else {
+                    c = strings[i];
+                    if (!c.equals("/") && !c.equals("*") && !c.equals("+") && !c.equals("-") && !c.equals("=")) return false;
+
+                }
+            }
+        } catch (NumberFormatException e){
+            return false;
+        }
+
+        return false;
+    }
+    private static String[] separatedBySpace (String s){
+        int ansArrayLength = 1;
+        for (int i = 0; i < s.length(); i++){
+            if ((s.charAt(i) + "").equals(" ")){
+                ansArrayLength++;
+            }
+        }
+
+        String[] ans = new String[ansArrayLength];
+        Arrays.fill(ans, "");
+
+        int k = 0;
+        for (int i = 0; i < s.length(); i++){
+            if ((s.charAt(i) + "").equals(" ")){
+                k++;
+            } else {
+                ans[k] += s.charAt(i);
+            }
+
+        }
+        return ans;
+    }
 
 
     /**
@@ -386,6 +472,33 @@ public class Java_Tasks_6_6 {
      * Примечание:
      * – Числа всегда будут иметь четное число цифр.
      */
+    private static boolean palindromeDescendant (int n){
+        if (isPalindrome(Integer.toString(n))) return true;
+
+        for (int i = 1; i <= 2; i++){
+            n = getDescendant(n);
+            if (isPalindrome(Integer.toString(n))) return true;
+        }
+        return false;
+    }
+    private static int getDescendant (int n){
+        String number = Integer.toString(n);
+        String ans = "";
+
+        for (int i = 1; i < number.length(); i+= 2){
+            int num =  Integer.parseInt(number.indexOf(i) + "") + Integer.parseInt(number.indexOf(i - 1) + "");
+            ans += Integer.toString(num);
+        }
+
+        return Integer.parseInt(ans);
+    }
+    private static boolean isPalindrome (String s){
+        int halfLength =(int) Math.floor((double)s.length() / 2);
+        for (int i = 0; i < halfLength; i++){
+            if (s.charAt(i) != s.charAt(halfLength - i)) return false;
+        }
+        return true;
+    }
 
 
 }
