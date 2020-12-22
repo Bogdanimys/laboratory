@@ -30,6 +30,12 @@ public class Java_Tasks_6_6 {
         System.out.println("___[6]___");
         System.out.println(ulam(6));
 
+        System.out.println("___[7]___");
+        System.out.println(longestNonrepeatingSubstring("abcabce"));
+
+        System.out.println("___[8]___");
+        System.out.println();
+
     }
 
 
@@ -295,22 +301,90 @@ public class Java_Tasks_6_6 {
 
 
     /**
-     *
+     *7. Напишите функцию, которая возвращает самую длинную неповторяющуюся подстроку для строкового ввода.
+     * Примечание:
+     * – Если несколько подстрок связаны по длине, верните ту, которая возникает первой.
+     * – Бонус: можете ли вы решить эту проблему в линейном времени?
+     */
+    private static String longestNonrepeatingSubstring (String s){
+        StringBuilder ans = new StringBuilder();
+        StringBuilder buffer = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++){
+            if (buffer.toString().contains(s.charAt(i) + "")){
+                if (buffer.toString().length() > ans.toString().length()){
+                    ans = buffer;
+                }
+                buffer.delete(0, buffer.length());
+            }
+            buffer.append(s.charAt(i));
+        }
+
+        return ans.toString();
+    }
+
+
+    /**
+     *8. Создайте функцию, которая принимает арабское число и преобразует его в римское число.
+     * Примечание:
+     * – Все римские цифры должны быть возвращены в верхнем регистре.
+     * – Самое большое число, которое может быть представлено в этой нотации, - 3,999.
+     */
+    private static String convertToRoman (int n){
+        StringBuilder ans = new StringBuilder();
+        String wholeNumber = Integer.toString(n);
+
+        for (int i = 0; i < wholeNumber.length(); i++) {
+            int pos = Math.abs(i - wholeNumber.length());
+            int number = Integer.parseInt(wholeNumber.charAt(i) + "");
+
+            if (number != 0) {
+
+                switch (pos) {
+
+                    case 1:
+                        if (number < 3) {
+                            ans.append("I".repeat(number));
+                        } else if (number < 5) {
+                            ans.append("I".repeat(4 - number)).append("V");
+                        } else if (number == 5){
+                            ans.append("V");
+                        } else if (number < 9){
+                            ans.append("V").append("I".repeat(8 - number));
+                        } else {
+
+                        }
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                }
+            }
+        }
+
+        return ans.toString();
+    }
+
+
+    /**
+     *9. Создайте функцию, которая принимает строку и возвращает true или false в зависимости от того, является ли формула правильной или нет.
      */
 
 
     /**
+     *10. Число может не быть палиндромом, но его потомком может быть.
+     *  Прямой потомок числа создается путем суммирования каждой пары соседних цифр, чтобы создать цифры следующего числа.
+     * Например, 123312 – это не палиндром, а его следующий потомок 363, где: 3 = 1 + 2; 6 = 3 + 3; 3 = 1 + 2.
      *
-     */
-
-
-    /**
-     *
-     */
-
-
-    /**
-     *
+     * Создайте функцию, которая возвращает значение true, если само число является палиндромом или любой из его потомков вплоть
+     * до 2 цифр (однозначное число - тривиально палиндром).
+     * Примечание:
+     * – Числа всегда будут иметь четное число цифр.
      */
 
 
