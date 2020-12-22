@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e884aed-6ea1-4647-b98f-18a4adafced0" name="Default Changelist" comment=".gitignore был удалён">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_lab7/Crawl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_lab7/Crawl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_lab7/Crawl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_lab7/Crawl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Crawl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crawl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab4_and_5_and_6/out/production/java_lab4_and_5_and_6/FractalExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab4_and_5_and_6/out/production/java_lab4_and_5_and_6/FractalExplorer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab4_and_5_and_6/src/FractalExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab4_and_5_and_6/src/FractalExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab8/out/production/java_lab8/Crawl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab8/out/production/java_lab8/Crawl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab8/src/Crawl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab8/src/Crawl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java_lab8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyFirstAttemmpptt" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -193,10 +194,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="827" y="102" width="265" height="798" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608051924116" />
-    <state x="265" y="275" key="FileChooserDialogImpl" timestamp="1608114036599">
+    <state x="265" y="275" key="FileChooserDialogImpl" timestamp="1608619024622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="265" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608114036599" />
+    <state x="265" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608619024622" />
     <state width="1877" height="137" key="GridCell.Tab.0.bottom" timestamp="1608055042235">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

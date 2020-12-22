@@ -23,63 +23,15 @@ public class Crawl {
     private static final Main m = new Main();
     public static void main(String[] args) {
 
-        //https://www.nytimes.com/
-        //https://slashdot.org/
 
-        // активируем прогу с помощью ввода пользователя
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            try { // Ввод и проверка MAXDepth
-                if (urlPool == null) {
-                    System.out.println("Введите максимальную глубину поиска:");
-                    String writingPoolDepth = scanner.nextLine();
-                    int i = Integer.parseInt(writingPoolDepth);
-                    if (i <= 0) {
-                        System.out.print("Ошибка ввода! ");
-                        continue;
-                    }
-                    urlPool = new URLPool(i);
-                }
-            }
-            catch (NumberFormatException numberFormatException) {
-                System.out.print("Ошибка ввода! ");
-                continue;
-            }
-            try { // Ввод и проверка MAXThreads
-                if (MAXThreads == 0) {
-                    System.out.println("Введите количество потоков");
-                    String writingMAXThreads = scanner.nextLine();
-                    int i = Integer.parseInt(writingMAXThreads);
-                    if (i <= 0){
-                        System.out.print("Ошибка ввода! ");
-                        continue;
-                    }
-                    MAXThreads = i;
-                }
-            }
-            catch (NumberFormatException numberFormatException) {
-                System.out.print("Ошибка ввода! ");
-                continue;
-            }
-            try { // Ввод и проверка url
-                System.out.println("Введите сайт для начала поиска");
-                String writingURL = scanner.nextLine();
-                (new java.net.URL(writingURL)).openStream().close();
-                urlPool.addToUnchecked(new URLDepthPair(writingURL, 0));
-                break;
-            } catch (Exception ex) {
-                System.out.print("Ошибка ввода! ");
-            }
-        }
-
-
-
+        //https://slashdot.org/    - нормальная рабочая ссылка
+       //startWithUserInput();
 
 
         //Нормальный способ активировать программу
-//        urlPool = new URLPool(3);
-//        MAXThreads = 8;
-//        urlPool.addToUnchecked(new URLDepthPair("https://slashdot.org/", 0));
+        urlPool = new URLPool(3);
+        MAXThreads = 8;
+        urlPool.addToUnchecked(new URLDepthPair("https://slashdot.org/", 0));
 
 
         while (!urlPool.uncheckedIsEmpty() || activeThreads != 0) { // работает пока не закончатся непроверенные ссылки и все потоки
@@ -193,6 +145,53 @@ public class Crawl {
         }
 
 
+    }
+    private static void startWithUserInput (){
+        // активируем прогу с помощью ввода пользователя
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            try { // Ввод и проверка MAXDepth
+                if (urlPool == null) {
+                    System.out.println("Введите максимальную глубину поиска:");
+                    String writingPoolDepth = scanner.nextLine();
+                    int i = Integer.parseInt(writingPoolDepth);
+                    if (i <= 0) {
+                        System.out.print("Ошибка ввода! ");
+                        continue;
+                    }
+                    urlPool = new URLPool(i);
+                }
+            }
+            catch (NumberFormatException numberFormatException) {
+                System.out.print("Ошибка ввода! ");
+                continue;
+            }
+            try { // Ввод и проверка MAXThreads
+                if (MAXThreads == 0) {
+                    System.out.println("Введите количество потоков");
+                    String writingMAXThreads = scanner.nextLine();
+                    int i = Integer.parseInt(writingMAXThreads);
+                    if (i <= 0){
+                        System.out.print("Ошибка ввода! ");
+                        continue;
+                    }
+                    MAXThreads = i;
+                }
+            }
+            catch (NumberFormatException numberFormatException) {
+                System.out.print("Ошибка ввода! ");
+                continue;
+            }
+            try { // Ввод и проверка url
+                System.out.println("Введите сайт для начала поиска");
+                String writingURL = scanner.nextLine();
+                (new java.net.URL(writingURL)).openStream().close();
+                urlPool.addToUnchecked(new URLDepthPair(writingURL, 0));
+                break;
+            } catch (Exception ex) {
+                System.out.print("Ошибка ввода! ");
+            }
+        }
     }
 
 

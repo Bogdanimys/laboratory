@@ -1,5 +1,6 @@
 package com.company.java_tasks;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Java_Tasks_6_6 {
@@ -23,6 +24,11 @@ public class Java_Tasks_6_6 {
         String[] strings4 = {"b"};
         System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2", strings4));
 
+        System.out.println("___[5]___");
+        System.out.println(Arrays.toString(getHashTags("How the Avocado Became the Fruit of the Global Trade")));
+
+        System.out.println("___[6]___");
+        System.out.println(ulam(6));
 
     }
 
@@ -238,22 +244,54 @@ public class Java_Tasks_6_6 {
      * Если несколько слов одинаковой длины, найдите слово, которое встречается первым.
      */
     private static String[] getHashTags (String s){
-        String[] ans = new String[3];
+        String[] ans = {"#","#","#"};
+        String[] strings = sentenceToWords(s);
 
-        int k = 0;
-        while (k < 2){
-
-            for (int i = 0; i < s.length(); i++){
-
+        for (int j = 0; j < strings.length; j++) {
+            for (int i = 0; i <= 2; i++) {
+                if (ans[i].replaceFirst("#","").length() < strings[j].length()){
+                    ans[i] ="#" + strings[j].toLowerCase();
+                    break;
+                }
             }
         }
 
+        return ans;
     }
 
 
     /**
-     *
+     * 6. Следующее число в последовательности - это наименьшее положительное число, равное сумме двух разных чисел
+     * (которые уже есть в последовательности) ровно одним способом.
+     * Тривиально, это 3, так как в стартовой последовательности есть только 2 числа.
      */
+    private static int ulam (int n){
+        int[] ans = new int[n];
+        ans[0] = 1;
+        if (n == 1) return ans[0];
+        ans[1] = 2;
+        if (n == 2) return ans[1];
+
+        int nextNumb = 3;
+        for (int j = 2; j < ans.length; j++){
+
+            boolean fAnotherSumFound = false;
+            for (int i = 1; i < ans.length; i++) {
+                for (int ii = i + 1; ii < ans.length; ii++) {
+                    if (ans[ii] + ans[i] == nextNumb && !fAnotherSumFound) {
+                        nextNumb++;
+                        fAnotherSumFound = true;
+                    }
+                }
+            }
+
+
+            ans[j] = nextNumb;
+            nextNumb++;
+        }
+
+        return ans[n - 1];
+    }
 
 
     /**

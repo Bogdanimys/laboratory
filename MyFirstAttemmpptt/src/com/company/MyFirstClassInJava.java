@@ -32,7 +32,7 @@ public class MyFirstClassInJava {
         //Java_Tasks_5_6.showResults();
 
         // показывает результаты из 6/6
-        //Java_Tasks_6_6.showResults();
+        Java_Tasks_6_6.showResults();
 
 
 

@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e884aed-6ea1-4647-b98f-18a4adafced0" name="Default Changelist" comment="copied lab 7 for the sake of out planet and making lab 8">
-      <change afterPath="$PROJECT_DIR$/src/CrawlerTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/URLPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/URLPool.java" afterDir="false" />
+    <list default="true" id="9e884aed-6ea1-4647-b98f-18a4adafced0" name="Default Changelist" comment="lab 8 done?">
+      <change beforePath="$PROJECT_DIR$/../java_lab4_and_5_and_6/out/production/java_lab4_and_5_and_6/FractalExplorer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab4_and_5_and_6/out/production/java_lab4_and_5_and_6/FractalExplorer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java_lab4_and_5_and_6/src/FractalExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java_lab4_and_5_and_6/src/FractalExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_lab8/Crawl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_lab8/Crawl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Crawl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crawl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +57,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java_lab7" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -128,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608114939791</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="lab 8 done?">
+      <created>1608128132638</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1608128132638</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -159,7 +169,8 @@
     <MESSAGE value="lab7 kinda done again (1.0)&#10;TODO:&#10;   1)Больше комментариев и разделения на методы&#10;   2)Основное задание + некоторые дополнительные выполнены. Оставшиеся доп. задания - запись ссылок в базу данных?; алгоритм &quot;поиска смысла&quot; &#10;   &#10;   P.s. Не сломалось при трёх последоваетльных запусках = 1.0 :)" />
     <MESSAGE value=".gitignore был удалён" />
     <MESSAGE value="copied lab 7 for the sake of out planet and making lab 8" />
-    <option name="LAST_COMMIT_MESSAGE" value="copied lab 7 for the sake of out planet and making lab 8" />
+    <MESSAGE value="lab 8 done?" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab 8 done?" />
   </component>
   <component name="WindowStateProjectService">
     <state x="637" y="265" key="#Console" timestamp="1606050745801">
@@ -198,42 +209,42 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="827" y="102" width="265" height="798" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608051924116" />
-    <state x="265" y="275" key="FileChooserDialogImpl" timestamp="1608052591274">
+    <state x="265" y="275" key="FileChooserDialogImpl" timestamp="1608498937355">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="265" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608052591274" />
-    <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1608128022257">
+    <state x="265" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608498937355" />
+    <state width="1877" height="293" key="GridCell.Tab.0.bottom" timestamp="1608198649239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608128022257" />
-    <state width="1877" height="286" key="GridCell.Tab.0.center" timestamp="1608128022257">
+    <state width="1877" height="293" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649239" />
+    <state width="1877" height="293" key="GridCell.Tab.0.center" timestamp="1608198649239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="286" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608128022257" />
-    <state width="1877" height="286" key="GridCell.Tab.0.left" timestamp="1608128022257">
+    <state width="1877" height="293" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649239" />
+    <state width="1877" height="293" key="GridCell.Tab.0.left" timestamp="1608198649239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="286" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608128022257" />
-    <state width="1877" height="286" key="GridCell.Tab.0.right" timestamp="1608128022257">
+    <state width="1877" height="293" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649239" />
+    <state width="1877" height="293" key="GridCell.Tab.0.right" timestamp="1608198649239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="286" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608128022257" />
-    <state width="1877" height="293" key="GridCell.Tab.1.bottom" timestamp="1608126284226">
+    <state width="1877" height="293" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649239" />
+    <state width="1877" height="293" key="GridCell.Tab.1.bottom" timestamp="1608198649240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608126284226" />
-    <state width="1877" height="293" key="GridCell.Tab.1.center" timestamp="1608126284226">
+    <state width="1877" height="293" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649240" />
+    <state width="1877" height="293" key="GridCell.Tab.1.center" timestamp="1608198649240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608126284226" />
-    <state width="1877" height="293" key="GridCell.Tab.1.left" timestamp="1608126284225">
+    <state width="1877" height="293" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649240" />
+    <state width="1877" height="293" key="GridCell.Tab.1.left" timestamp="1608198649240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608126284225" />
-    <state width="1877" height="293" key="GridCell.Tab.1.right" timestamp="1608126284226">
+    <state width="1877" height="293" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649240" />
+    <state width="1877" height="293" key="GridCell.Tab.1.right" timestamp="1608198649240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608126284226" />
+    <state width="1877" height="293" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608198649240" />
     <state x="728" y="222" key="RollbackChangesDialog" timestamp="1605996024153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,10 +253,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="505" y="124" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608114076676" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1608049947007">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1608128139384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608049947007" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608128139384" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1605036327384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -274,11 +285,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="31" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Crawl.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
